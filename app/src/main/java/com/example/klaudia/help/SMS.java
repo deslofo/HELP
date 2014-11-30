@@ -30,6 +30,7 @@ public class SMS extends ActionBarActivity implements LocationListener {
     ArrayList<String> fragmenty = null;
     //SmsManager smsManager = null;
     String telefon = "881204283";
+    //bla
 
     LocationManager locationManager;
     Location location;
