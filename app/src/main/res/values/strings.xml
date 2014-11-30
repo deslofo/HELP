@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HELP</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="dzwon">Pomoc</string>
+    <string name="sms">Bliscy</string>
+    <string name="szukaj">Szukaj w okolicy</string>
+    <string name="Pierwsza_pomoc">Pierwsza pomoc</string>
+    <string name="Ustawienia">Informacje o sobie</string>
+    <string name="title_activity_sms">SMS</string>
+    <string name="title_activity_bliscy">Bliscy</string>
+
+</resources>
