@@ -29,9 +29,9 @@ public class SMS extends ActionBarActivity implements LocationListener {
     EditText text;
     ArrayList<String> fragmenty = null;
     //SmsManager smsManager = null;
-    String telefon = "881204283";
+    //String telefon = "881204283";
     //bla
-
+    String telefon;
     LocationManager locationManager;
     Location location;
     String najlepszydostawca;
@@ -80,7 +80,7 @@ public class SMS extends ActionBarActivity implements LocationListener {
         }
 
 
-        geocoder = geocoder = new Geocoder(this, Locale.getDefault());;
+        geocoder = new Geocoder(this, Locale.getDefault());
         List<Address> addresses;
         String result = "";
         try{
@@ -101,8 +101,8 @@ public class SMS extends ActionBarActivity implements LocationListener {
         s += " " + result;
         Log.d("dlugosc", s);
         fragmenty = smsManager.divideMessage(s);
-        smsManager = SmsManager.getDefault();
-        smsManager.sendMultipartTextMessage(telefon, null, fragmenty, null, null);
+        //smsManager = SmsManager.getDefault();
+        //smsManager.sendMultipartTextMessage(telefon, null, fragmenty, null, null);
         //Toast.makeText(getApplicationContext(), "Wiadomość została wysłana", Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
         location = null;
