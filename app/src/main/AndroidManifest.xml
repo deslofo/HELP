@@ -41,6 +41,10 @@
             android:name="com.example.klaudia.help.Bliscy"
             android:label="@string/title_activity_bliscy" >
         </activity>
+        <activity
+            android:name="com.example.klaudia.help.Instrukcje"
+            android:label="@string/title_activity_instrukcje" >
+        </activity>
     </application>
 
 </manifest>

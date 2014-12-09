@@ -4,12 +4,13 @@
     <string name="app_name">HELP</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="dzwon">Pomoc</string>
-    <string name="sms">Bliscy</string>
+    <string name="dzwon">Zadzwoń po pomoc</string>
+    <string name="sms">Powiadom bliskiego</string>
     <string name="szukaj">Szukaj w okolicy</string>
-    <string name="Pierwsza_pomoc">Pierwsza pomoc</string>
-    <string name="Ustawienia">Informacje o sobie</string>
+    <string name="Pierwsza_pomoc">Instrukcje pierwszej pomocy</string>
+    <string name="Info">Medyczne informacje o sobie</string>
     <string name="title_activity_sms">SMS</string>
     <string name="title_activity_bliscy">Bliscy</string>
+    <string name="title_activity_instrukcje">Instrukcje</string>
 
 </resources>

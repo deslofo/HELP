@@ -7,7 +7,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".Main"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/green2"
+    >
+
 
 
     <LinearLayout
@@ -15,18 +18,13 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dzwon"
+            android:background="@color/red"
             android:layout_weight="1"/>
 
-        <Button
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sms"
-            android:layout_weight="1"
-            android:onClick="SMS"/>
 
         </LinearLayout>
 
@@ -34,19 +32,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sms"
+        android:background="@color/blue"
+        android:layout_weight="1"
+        android:onClick="SMS"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <Button
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/szukaj"
+            android:background="@color/morski"
             android:layout_weight="1"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Ustawienia"
-            android:layout_weight="1"/>
-
-        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,8 +62,27 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Pierwsza_pomoc"
+            android:text="@string/Info"
+            android:layout_marginTop="10dp"
+            android:background="@color/aqua"
+
             android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/Pierwsza_pomoc"
+            android:background="@color/aqua"
+            android:onClick="Instrukcje"
+            android:layout_weight="1"/>
+
 
         </LinearLayout>
 

@@ -1,36 +1,48 @@
 package com.example.klaudia.help;
 
-import android.content.Intent;
+
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+public class Instrukcje extends ActionBarActivity {
 
-public class Main extends ActionBarActivity {
 
-    public void SMS(View view){
-        Intent intent = new Intent(getApplicationContext(), Bliscy.class);
-        startActivity(intent);
-    }
-    public void Instrukcje(View view){
-        Intent intent = new Intent(getApplicationContext(), Instrukcje.class);
-        startActivity(intent);
+
+    public void reanimacja (View view){
+        Log.d("Instrukcje", "Weszlo w reanimacje");
 
     }
+    public void oparzenie(View view){
 
+    }
+    public void omdlenie(View view){
+
+    }
+    public void złamanie(View view){
+
+    }
+    public void skaleczenie(View view){
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        Log.d("Instrukcje","onCreate");
+        setContentView(R.layout.wybor_instrukcji);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        Log.d("Instrukcje"," przed onCreateOptionsMenu");
+        getMenuInflater().inflate(R.menu.instrukcje, menu);
+        Log.d("Instrukcje"," po onCreateOptionsMenu");
         return true;
     }
 
@@ -48,4 +60,6 @@ public class Main extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
