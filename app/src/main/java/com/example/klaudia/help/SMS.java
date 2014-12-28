@@ -1,5 +1,6 @@
 package com.example.klaudia.help;
 
+import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Criteria;
@@ -7,6 +8,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,12 +30,12 @@ import java.util.Locale;
 public class SMS extends ActionBarActivity implements LocationListener {
 
     EditText text;
-    ArrayList<String> fragmenty = null;
     //SmsManager smsManager = null;
     //String telefon = "881204283";
     //bla
     String telefon;
     LocationManager locationManager;
+    Criteria criteria;
     Location location;
     String najlepszydostawca;
     Criteria kr;
@@ -49,9 +52,55 @@ public class SMS extends ActionBarActivity implements LocationListener {
         startActivity(dial);
     }
 
+    public String getBestProvider(){
+        criteria = new Criteria();
+        criteria.setAccuracy(Criteria.NO_REQUIREMENT);
+        criteria.setPowerRequirement(Criteria.NO_REQUIREMENT);
+
+        String bestProvider = locationManager.getBestProvider(criteria, true);
+        return bestProvider;
+    }
+
     public void wyslij(View view){
 
-        kr=new Criteria();
+        onLoadLocationMenager();
+        String dostawca = getBestProvider();
+        Log.d("dostawca", dostawca);
+        location = locationManager.getLastKnownLocation(dostawca);
+        Geocoder coder = new Geocoder(this);
+        String localInfo = null;
+        try {
+            Iterator<Address> address = coder.
+                    getFromLocation(location.getLatitude(),
+                            location.getLongitude(), 3).iterator();
+            if(address != null){
+                while (address.hasNext()) {
+                    Address namedLoc = address.next();
+                    String placeName = namedLoc.getLocality();
+                    String featueName = namedLoc.getFeatureName();
+                    String country = namedLoc.getCountryName();
+                    String road = namedLoc.getThoroughfare();
+                    localInfo += String.format("\n[%s][%s][%s][%s]",
+                            placeName, featueName, road, country);
+
+                }
+            }
+            //Toast.makeText(getApplicationContext(), localInfo, Toast.LENGTH_SHORT).show();
+            Log.d("localinfo", localInfo);
+
+        }
+        catch (IOException e) {
+            Log.e("GPS", "Nie udalo się określić położenia" ,e);
+            Toast.makeText(getApplicationContext(), "Nie udalo się określić położenia", Toast.LENGTH_SHORT).show();
+        }
+        String result = text.getText().toString();;
+        result += localInfo;
+        SmsManager smsManager = SmsManager.getDefault();
+        ArrayList<String> fragmenty = null;
+        fragmenty = smsManager.divideMessage(result);
+        smsManager.sendMultipartTextMessage(telefon, null, fragmenty, null, null);
+        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+        /*kr=new Criteria();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         najlepszydostawca = locationManager.getBestProvider(kr, true);
         Log.d("dlugosc", najlepszydostawca);
@@ -106,6 +155,70 @@ public class SMS extends ActionBarActivity implements LocationListener {
         //Toast.makeText(getApplicationContext(), "Wiadomość została wysłana", Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
         location = null;
+        */
+    }
+
+    public void onLoadLocationMenager(){
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    }
+
+    public static Criteria createCoarseCriteria() {
+        Criteria c = new Criteria();
+        c.setAccuracy(Criteria.ACCURACY_COARSE);
+        c.setAltitudeRequired(false);
+        return c;
+    }
+
+    public static Criteria createFineCriteria() {
+        Criteria c = new Criteria();
+        c.setAccuracy(Criteria.ACCURACY_FINE);
+        c.setAltitudeRequired(false);
+        return c;
+    }
+
+    public void init(){
+
+        LocationManager locMgr = locationManager;
+
+        // get low accuracy provider
+        Criteria c1 = createCoarseCriteria();
+
+        // get high accuracy provider
+        Criteria c2 = createFineCriteria();
+
+        // using low accuracy provider... to listen for updates
+        locMgr.requestLocationUpdates("low", 0, 0f,
+                new LocationListener() {
+                    public void onLocationChanged(Location location) {
+                        // do something here to save this new location
+                    }
+                    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+                    }
+                    public void onProviderEnabled(String s) {
+                        // try switching to a different provider
+                    }
+                    public void onProviderDisabled(String s) {
+                        // try switching to a different provider
+                    }
+                });
+
+        // using high accuracy provider... to listen for updates
+        locMgr.requestLocationUpdates("high", 0, 0f,
+                new LocationListener() {
+                    public void onLocationChanged(Location location) {
+                        // do something here to save this new location
+                    }
+                    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+                    }
+                    public void onProviderEnabled(String s) {
+                        // try switching to a different provider
+                    }
+                    public void onProviderDisabled(String s) {
+                        // try switching to a different provider
+                    }
+                });
     }
 
     @Override
