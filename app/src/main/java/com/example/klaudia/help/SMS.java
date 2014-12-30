@@ -1,5 +1,6 @@
 package com.example.klaudia.help;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
@@ -52,6 +53,14 @@ public class SMS extends ActionBarActivity implements LocationListener {
         startActivity(dial);
     }
 
+    PendingIntent generateIntent()
+    {
+        String geoUri = String.format(" geo:%f,%f", location.getLatitude(), location.getLongitude());
+        Uri geo = Uri.parse(geoUri);
+        Intent geoMap = new Intent(Intent.ACTION_VIEW, geo);
+        return PendingIntent.getBroadcast(getApplicationContext(), 0, geoMap, 0);
+    }
+
     public String getBestProvider(){
         criteria = new Criteria();
         criteria.setAccuracy(Criteria.NO_REQUIREMENT);
@@ -93,12 +102,28 @@ public class SMS extends ActionBarActivity implements LocationListener {
             Log.e("GPS", "Nie udalo się określić położenia" ,e);
             Toast.makeText(getApplicationContext(), "Nie udalo się określić położenia", Toast.LENGTH_SHORT).show();
         }
-        String result = text.getText().toString();;
+        String result = text.getText().toString();
+        String latitude = String.valueOf(location.getLatitude());
+        String longitude = String.valueOf(location.getLongitude());
+        latitude.replace(",", ".");
+        longitude.replace(",", ".");
+        String geoUri = String.format("http://maps.google.com/maps?q=%s,%s", latitude, longitude);
+        Log.d("geoUri", geoUri);
+        Uri geo = Uri.parse(geoUri);
+        Intent geoMap = new Intent(Intent.ACTION_VIEW, geo);
+        //startActivity(geoMap);
         result += localInfo;
+        result += geoUri;
         SmsManager smsManager = SmsManager.getDefault();
         ArrayList<String> fragmenty = null;
         fragmenty = smsManager.divideMessage(result);
-        smsManager.sendMultipartTextMessage(telefon, null, fragmenty, null, null);
+
+        ArrayList<PendingIntent> listOfIntents = new ArrayList<PendingIntent>();
+        //assert listOfIntents != null;
+       // listOfIntents.add(0, generateIntent());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, geoMap, PendingIntent.FLAG_ONE_SHOT);
+        listOfIntents.add(0, pendingIntent);
+        smsManager.sendMultipartTextMessage(telefon, null, fragmenty, listOfIntents, null);
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
         /*kr=new Criteria();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -162,65 +187,6 @@ public class SMS extends ActionBarActivity implements LocationListener {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
     }
 
-    public static Criteria createCoarseCriteria() {
-        Criteria c = new Criteria();
-        c.setAccuracy(Criteria.ACCURACY_COARSE);
-        c.setAltitudeRequired(false);
-        return c;
-    }
-
-    public static Criteria createFineCriteria() {
-        Criteria c = new Criteria();
-        c.setAccuracy(Criteria.ACCURACY_FINE);
-        c.setAltitudeRequired(false);
-        return c;
-    }
-
-    public void init(){
-
-        LocationManager locMgr = locationManager;
-
-        // get low accuracy provider
-        Criteria c1 = createCoarseCriteria();
-
-        // get high accuracy provider
-        Criteria c2 = createFineCriteria();
-
-        // using low accuracy provider... to listen for updates
-        locMgr.requestLocationUpdates("low", 0, 0f,
-                new LocationListener() {
-                    public void onLocationChanged(Location location) {
-                        // do something here to save this new location
-                    }
-                    public void onStatusChanged(String s, int i, Bundle bundle) {
-
-                    }
-                    public void onProviderEnabled(String s) {
-                        // try switching to a different provider
-                    }
-                    public void onProviderDisabled(String s) {
-                        // try switching to a different provider
-                    }
-                });
-
-        // using high accuracy provider... to listen for updates
-        locMgr.requestLocationUpdates("high", 0, 0f,
-                new LocationListener() {
-                    public void onLocationChanged(Location location) {
-                        // do something here to save this new location
-                    }
-                    public void onStatusChanged(String s, int i, Bundle bundle) {
-
-                    }
-                    public void onProviderEnabled(String s) {
-                        // try switching to a different provider
-                    }
-                    public void onProviderDisabled(String s) {
-                        // try switching to a different provider
-                    }
-                });
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -228,9 +194,8 @@ public class SMS extends ActionBarActivity implements LocationListener {
 
         Bundle bundle = getIntent().getExtras();
         telefon = bundle.getString("telefon");
-        Log.d("telefon", telefon);
         text = (EditText) findViewById(R.id.text);
-
+        Log.d("telefon", telefon);
     }
 
 
