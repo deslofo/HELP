@@ -31,34 +31,15 @@ import java.util.Locale;
 public class SMS extends ActionBarActivity implements LocationListener {
 
     EditText text;
-    //SmsManager smsManager = null;
-    //String telefon = "881204283";
-    //bla
     String telefon;
     LocationManager locationManager;
     Criteria criteria;
     Location location;
-    String najlepszydostawca;
-    Criteria kr;
-    Geocoder geocoder;
-    double dlugosc;
-    double szerokosc;
-    boolean gps = false;
-    boolean internet = false;
-    Location savedLocation = null;
 
     public void zadzwon(View view){
         Uri number = Uri.parse("tel:" + telefon);
         Intent dial = new Intent(Intent.ACTION_CALL, number);
         startActivity(dial);
-    }
-
-    PendingIntent generateIntent()
-    {
-        String geoUri = String.format(" geo:%f,%f", location.getLatitude(), location.getLongitude());
-        Uri geo = Uri.parse(geoUri);
-        Intent geoMap = new Intent(Intent.ACTION_VIEW, geo);
-        return PendingIntent.getBroadcast(getApplicationContext(), 0, geoMap, 0);
     }
 
     public String getBestProvider(){
@@ -241,36 +222,16 @@ public class SMS extends ActionBarActivity implements LocationListener {
 
     }
 
-    private LocationListener ll = new LocationListener() {
-        @Override
-        public void onStatusChanged(String arg0, int arg1, Bundle arg2) { }
+    @Override
+    protected void onResume(){
+        super.onResume();
 
-        @Override
-        public void onProviderEnabled(String arg0) { }
-
-        @Override
-        public void onProviderDisabled(String arg0) {
-
-        }
-
-        @Override
-        public void onLocationChanged(Location location) {
-
-
-            if(savedLocation == null)
-                savedLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        }
-    };
+        locationManager.requestLocationUpdates(getBestProvider(), 15000, 1f, this);
+    }
 
     @Override
-    protected void onStop() {
-
-        if (locationManager!=null) {
-            locationManager.removeUpdates(ll);
-            locationManager.removeUpdates(ll);
-            locationManager.removeUpdates(this);
-        }
-        super.onStop();
+    protected void onPause(){
+        locationManager.removeUpdates(this);
     }
 
 }
