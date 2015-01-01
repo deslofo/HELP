@@ -225,12 +225,13 @@ public class SMS extends ActionBarActivity implements LocationListener {
     @Override
     protected void onResume(){
         super.onResume();
-
-        locationManager.requestLocationUpdates(getBestProvider(), 15000, 1f, this);
+        if(locationManager != null)
+            locationManager.requestLocationUpdates(getBestProvider(), 15000, 1f, this);
     }
 
     @Override
     protected void onPause(){
+        super.onPause();
         locationManager.removeUpdates(this);
     }
 

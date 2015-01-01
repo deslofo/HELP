@@ -12,5 +12,6 @@
     <string name="title_activity_sms">SMS</string>
     <string name="title_activity_bliscy">Bliscy</string>
     <string name="title_activity_instrukcje">Instrukcje</string>
+    <string name="title_activity_firt_start">FirtStart</string>
 
 </resources>
