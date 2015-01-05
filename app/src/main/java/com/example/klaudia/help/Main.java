@@ -1,6 +1,8 @@
 package com.example.klaudia.help;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -25,6 +27,24 @@ public class Main extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("com.example.klaudia.help", Context.MODE_PRIVATE);
+        if(sharedPreferences.contains("firststart") == false){
+            Intent intent = new Intent(getApplicationContext(), FirstStart.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+        /*SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("firststart", true);
+        editor.commit();
+        boolean def = false;
+        def = sharedPreferences.getBoolean("firststart", def);
+        if(def){
+            Intent intent = new Intent(getApplicationContext(), FirstStart.class);
+            startActivity(intent);
+            finish();
+            return;
+        }*/
 
     }
 

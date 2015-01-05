@@ -1,6 +1,8 @@
 package com.example.klaudia.help;
 
+import android.content.Context;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -17,7 +19,8 @@ public class Info extends PreferenceActivity {
         return telefony;
     }
 
-    public static void daneUzupelnione(){
+    public static void daneUzupelnione(Context context){
+        //PreferenceManager.getDefaultSharedPreferences(context)
         dane = true;
     }
 

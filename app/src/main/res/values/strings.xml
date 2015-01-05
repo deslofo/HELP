@@ -13,5 +13,6 @@
     <string name="title_activity_bliscy">Bliscy</string>
     <string name="title_activity_instrukcje">Instrukcje</string>
     <string name="title_activity_firt_start">FirtStart</string>
+    <string name="title_activity_first_start">FirstStart</string>
 
 </resources>

@@ -104,7 +104,7 @@ public class SMS extends ActionBarActivity implements LocationListener {
        // listOfIntents.add(0, generateIntent());
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, geoMap, PendingIntent.FLAG_ONE_SHOT);
         listOfIntents.add(0, pendingIntent);
-        smsManager.sendMultipartTextMessage(telefon, null, fragmenty, listOfIntents, null);
+        //smsManager.sendMultipartTextMessage(telefon, null, fragmenty, listOfIntents, null);
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
         /*kr=new Criteria();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -177,6 +177,8 @@ public class SMS extends ActionBarActivity implements LocationListener {
         telefon = bundle.getString("telefon");
         text = (EditText) findViewById(R.id.text);
         Log.d("telefon", telefon);
+        onLoadLocationMenager();
+        getBestProvider();
     }
 
 
@@ -225,14 +227,14 @@ public class SMS extends ActionBarActivity implements LocationListener {
     @Override
     protected void onResume(){
         super.onResume();
-        if(locationManager != null)
+        //if(locationManager != null)
             locationManager.requestLocationUpdates(getBestProvider(), 15000, 1f, this);
     }
 
     @Override
     protected void onPause(){
         super.onPause();
-        if(locationManager != null)
+        //if(locationManager != null)
             locationManager.removeUpdates(this);
     }
 

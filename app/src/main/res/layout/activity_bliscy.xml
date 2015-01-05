@@ -9,30 +9,6 @@
     tools:context="help.Bliscy"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/sylwia"
-        android:text="Sylwia"
-        android:gravity="center"
-        android:onClick="zawiadom"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/magda"
-        android:text="Magda"
-        android:gravity="center"
-        android:onClick="zawiadom"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/wojtek"
-        android:text="Wojtek"
-        android:gravity="center"
-        android:onClick="zawiadom"/>
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
