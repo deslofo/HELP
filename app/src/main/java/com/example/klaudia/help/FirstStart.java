@@ -88,7 +88,7 @@ public class FirstStart extends ActionBarActivity {
             editor.apply();
             editor.commit();
             Log.d("lista size", String.valueOf(sharedPreferences.getInt("konakty", 0)));
-            Intent intent = new Intent(getApplicationContext(), Bliscy.class);
+            Intent intent = new Intent(getApplicationContext(), Main.class);
             startActivity(intent);
         }
         else
