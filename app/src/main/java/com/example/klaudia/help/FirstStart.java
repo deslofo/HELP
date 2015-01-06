@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -180,6 +181,66 @@ public class FirstStart extends ActionBarActivity {
 
     }
 
+    protected void poprawKontakDialog(final int position){
+
+        LayoutInflater li = LayoutInflater.from(FirstStart.this);
+        View propset = li.inflate(R.layout.newkontakt_dialog, null);
+        final EditText nazwa = (EditText) propset.findViewById(R.id.edit_nazwa);
+        nazwa.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        final EditText telefon = (EditText) propset.findViewById(R.id.dialog_telefon);
+        String s = lista_kontaktow.get(position);
+        String t[] = s.split(":");
+        nazwa.setText(t[0]);
+         t[1].replace(" ", "");
+        s = t[1];
+        s.replace(" ", "");
+        s = s.substring(1, s.length());
+        telefon.setText(s);
+        final AlertDialog.Builder alterdialog = new AlertDialog.Builder(FirstStart.this);
+        alterdialog.setTitle("Dodaj kontakt");
+        alterdialog.setView(propset);
+        alterdialog.setNeutralButton("Dodaj", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(final DialogInterface dialog, int which) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        textView1.setText(nazwa.getText());
+                        textView2.setText(telefon.getText());
+                        string1 = textView1.getText().toString();
+                        string2 = textView2.getText().toString();
+                        Log.d("nazwa", string1);
+                        Log.d("telefon", string2);
+                        if(string1.length() > 0 & string2.length() == 9) {
+                            String s = string1 + ": " + string2;
+                            string1 = string1 + ":\n" + string2;
+                            kontakty.add(position, s);
+                            kontakty.remove(position + 1);
+                            lista_kontaktow.add(position, string1);
+                            lista_kontaktow.remove(position+1);
+                            listView.invalidateViews();
+                            Helper.getListViewSize(listView);
+
+                        }
+                        else
+                            Toast.makeText(getApplicationContext(), "telefon lub nazwa jest nie wlasciwa", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+        alterdialog.setNegativeButton("Anuluj", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alertDialog = alterdialog.create();
+        alertDialog.show();
+
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -195,6 +256,13 @@ public class FirstStart extends ActionBarActivity {
         lista_kontaktow.add("Brak kontaktów, dodaj kontakt");
         String s = "";
         adapter = new ArrayAdapter<String>(this, R.layout.firststart_telefony, R.id.nazwa, lista_kontaktow);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(kontakty.size() > 0)
+                    poprawKontakDialog(position);
+            }
+        });
         listView.setAdapter(adapter);
 
     }
