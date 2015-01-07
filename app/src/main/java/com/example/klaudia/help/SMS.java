@@ -104,7 +104,7 @@ public class SMS extends ActionBarActivity implements LocationListener {
        // listOfIntents.add(0, generateIntent());
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, geoMap, PendingIntent.FLAG_ONE_SHOT);
         listOfIntents.add(0, pendingIntent);
-        smsManager.sendMultipartTextMessage(telefon, null, fragmenty, listOfIntents, null);
+        //smsManager.sendMultipartTextMessage(telefon, null, fragmenty, listOfIntents, null);
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
         /*kr=new Criteria();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);

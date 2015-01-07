@@ -14,5 +14,7 @@
     <string name="title_activity_instrukcje">Instrukcje</string>
     <string name="title_activity_firt_start">FirtStart</string>
     <string name="title_activity_first_start">FirstStart</string>
+    <string name="title_activity_reanimacja">Reanimacja</string>
+    <string name="title_activity_oparzenia">Oparzenia</string>
 
 </resources>

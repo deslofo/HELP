@@ -1,52 +1,24 @@
 package com.example.klaudia.help;
 
-
-
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-
-public class Instrukcje extends ActionBarActivity {
 
 
+public class Oparzenia extends ActionBarActivity {
 
-    public void reanimacja (View view){
-        Log.d("Instrukcje", "Weszlo w reanimacje");
-        Intent intent = new Intent(getApplicationContext(), Reanimacja.class);
-        startActivity(intent);
-
-    }
-    public void oparzenie(View view){
-        Intent intent = new Intent(getApplicationContext(), Oparzenia.class);
-        startActivity(intent);
-    }
-    public void omdlenie(View view){
-
-    }
-    public void złamanie(View view){
-
-    }
-    public void skaleczenie(View view){
-
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("Instrukcje","onCreate");
-        setContentView(R.layout.wybor_instrukcji);
+        setContentView(R.layout.activity_oparzenia);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        Log.d("Instrukcje"," przed onCreateOptionsMenu");
-        getMenuInflater().inflate(R.menu.instrukcje, menu);
-        Log.d("Instrukcje"," po onCreateOptionsMenu");
+        getMenuInflater().inflate(R.menu.oparzenia, menu);
         return true;
     }
 
@@ -64,6 +36,4 @@ public class Instrukcje extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }

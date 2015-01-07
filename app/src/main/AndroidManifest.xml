@@ -55,6 +55,14 @@
             android:name="com.example.klaudia.help.FirstStart"
             android:label="@string/title_activity_first_start" >
         </activity>
+        <activity
+            android:name="com.example.klaudia.help.Reanimacja"
+            android:label="@string/title_activity_reanimacja" >
+        </activity>
+        <activity
+            android:name="com.example.klaudia.help.Oparzenia"
+            android:label="@string/title_activity_oparzenia" >
+        </activity>
     </application>
 
 </manifest>
