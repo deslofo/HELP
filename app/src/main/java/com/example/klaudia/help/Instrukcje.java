@@ -25,12 +25,17 @@ public class Instrukcje extends ActionBarActivity {
         startActivity(intent);
     }
     public void omdlenie(View view){
-
+        Intent intent = new Intent(getApplicationContext(), Omdlenia.class);
+        startActivity(intent);
     }
     public void złamanie(View view){
-
+        Intent intent = new Intent(getApplicationContext(), Zlamania.class);
+        startActivity(intent);
     }
+
     public void skaleczenie(View view){
+        Intent intent = new Intent(getApplicationContext(), Skaleczenia.class);
+        startActivity(intent);
 
     }
     @Override

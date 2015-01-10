@@ -16,5 +16,8 @@
     <string name="title_activity_first_start">FirstStart</string>
     <string name="title_activity_reanimacja">Reanimacja</string>
     <string name="title_activity_oparzenia">Oparzenia</string>
+    <string name="title_activity_omdlenia">Omdlenia</string>
+    <string name="title_activity_zlamania">Zlamania</string>
+    <string name="title_activity_skaleczenia">Skaleczenia</string>
 
 </resources>

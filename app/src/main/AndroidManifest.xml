@@ -63,6 +63,18 @@
             android:name="com.example.klaudia.help.Oparzenia"
             android:label="@string/title_activity_oparzenia" >
         </activity>
+        <activity
+            android:name="com.example.klaudia.help.Omdlenia"
+            android:label="@string/title_activity_omdlenia" >
+        </activity>
+        <activity
+            android:name="com.example.klaudia.help.Zlamania"
+            android:label="@string/title_activity_zlamania" >
+        </activity>
+        <activity
+            android:name="com.example.klaudia.help.Skaleczenia"
+            android:label="@string/title_activity_skaleczenia" >
+        </activity>
     </application>
 
 </manifest>
