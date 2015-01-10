@@ -58,54 +58,57 @@ public class SMS extends ActionBarActivity implements LocationListener {
         Log.d("dostawca", dostawca);
         location = locationManager.getLastKnownLocation(dostawca);
         Geocoder coder = new Geocoder(this);
-        String localInfo = null;
-        try {
-            Iterator<Address> address = coder.
-                    getFromLocation(location.getLatitude(),
-                            location.getLongitude(), 3).iterator();
-            if(address != null){
-                while (address.hasNext()) {
-                    Address namedLoc = address.next();
-                    String placeName = namedLoc.getLocality();
-                    String featueName = namedLoc.getFeatureName();
-                    String country = namedLoc.getCountryName();
-                    String road = namedLoc.getThoroughfare();
-                    localInfo += String.format("\n[%s][%s][%s][%s]",
-                            placeName, featueName, road, country);
+        if (location != null) {
+            String localInfo = null;
+            try {
+                Iterator<Address> address = coder.
+                        getFromLocation(location.getLatitude(),
+                                location.getLongitude(), 3).iterator();
+                if (address != null) {
+                    while (address.hasNext()) {
+                        Address namedLoc = address.next();
+                        String placeName = namedLoc.getLocality();
+                        String featueName = namedLoc.getFeatureName();
+                        String country = namedLoc.getCountryName();
+                        String road = namedLoc.getThoroughfare();
+                        localInfo += String.format("\n[%s][%s][%s][%s]",
+                                placeName, featueName, road, country);
 
+                    }
                 }
+                //Toast.makeText(getApplicationContext(), localInfo, Toast.LENGTH_SHORT).show();
+                Log.d("localinfo", localInfo);
+
+            } catch (IOException e) {
+                Log.e("GPS", "Nie udalo się określić położenia", e);
+                Toast.makeText(getApplicationContext(), "Nie udalo się określić położenia", Toast.LENGTH_SHORT).show();
             }
-            //Toast.makeText(getApplicationContext(), localInfo, Toast.LENGTH_SHORT).show();
-            Log.d("localinfo", localInfo);
+            String result = text.getText().toString();
+            String latitude = String.valueOf(location.getLatitude());
+            String longitude = String.valueOf(location.getLongitude());
+            latitude.replace(",", ".");
+            longitude.replace(",", ".");
+            String geoUri = String.format("http://maps.google.com/maps?q=%s,%s", latitude, longitude);
+            Log.d("geoUri", geoUri);
+            Uri geo = Uri.parse(geoUri);
+            Intent geoMap = new Intent(Intent.ACTION_VIEW, geo);
+            //startActivity(geoMap);
+            result += localInfo;
+            result += geoUri;
+            SmsManager smsManager = SmsManager.getDefault();
+            ArrayList<String> fragmenty = null;
+            fragmenty = smsManager.divideMessage(result);
 
+            ArrayList<PendingIntent> listOfIntents = new ArrayList<PendingIntent>();
+            //assert listOfIntents != null;
+            // listOfIntents.add(0, generateIntent());
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, geoMap, PendingIntent.FLAG_ONE_SHOT);
+            listOfIntents.add(0, pendingIntent);
+            //smsManager.sendMultipartTextMessage(telefon, null, fragmenty, listOfIntents, null);
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
         }
-        catch (IOException e) {
-            Log.e("GPS", "Nie udalo się określić położenia" ,e);
+        else
             Toast.makeText(getApplicationContext(), "Nie udalo się określić położenia", Toast.LENGTH_SHORT).show();
-        }
-        String result = text.getText().toString();
-        String latitude = String.valueOf(location.getLatitude());
-        String longitude = String.valueOf(location.getLongitude());
-        latitude.replace(",", ".");
-        longitude.replace(",", ".");
-        String geoUri = String.format("http://maps.google.com/maps?q=%s,%s", latitude, longitude);
-        Log.d("geoUri", geoUri);
-        Uri geo = Uri.parse(geoUri);
-        Intent geoMap = new Intent(Intent.ACTION_VIEW, geo);
-        //startActivity(geoMap);
-        result += localInfo;
-        result += geoUri;
-        SmsManager smsManager = SmsManager.getDefault();
-        ArrayList<String> fragmenty = null;
-        fragmenty = smsManager.divideMessage(result);
-
-        ArrayList<PendingIntent> listOfIntents = new ArrayList<PendingIntent>();
-        //assert listOfIntents != null;
-       // listOfIntents.add(0, generateIntent());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, geoMap, PendingIntent.FLAG_ONE_SHOT);
-        listOfIntents.add(0, pendingIntent);
-        //smsManager.sendMultipartTextMessage(telefon, null, fragmenty, listOfIntents, null);
-        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
         /*kr=new Criteria();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         najlepszydostawca = locationManager.getBestProvider(kr, true);

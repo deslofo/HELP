@@ -65,6 +65,8 @@ public class Main extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(getApplicationContext(), Setings.class);
+            startActivity(intent);
             return true;
         }
 

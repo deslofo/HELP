@@ -75,6 +75,10 @@
             android:name="com.example.klaudia.help.Skaleczenia"
             android:label="@string/title_activity_skaleczenia" >
         </activity>
+        <activity
+            android:name="com.example.klaudia.help.Setings"
+            android:label="Seting" >
+        </activity>
     </application>
 
 </manifest>
