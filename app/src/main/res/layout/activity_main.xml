@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:text="@string/dzwon"
             android:background="@color/red"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="alarm"/>
 
 
         </LinearLayout>

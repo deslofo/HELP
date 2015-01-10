@@ -79,6 +79,10 @@
             android:name="com.example.klaudia.help.Setings"
             android:label="Seting" >
         </activity>
+        <activity
+            android:name="com.example.klaudia.help.Zadwon"
+            android:label="@string/title_activity_zadwon" >
+        </activity>
     </application>
 
 </manifest>

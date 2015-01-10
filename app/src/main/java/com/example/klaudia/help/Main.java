@@ -12,6 +12,12 @@ import android.view.View;
 
 public class Main extends ActionBarActivity {
 
+    public void alarm(View view){
+        Intent intent = new Intent(getApplicationContext(), Zadwon.class);
+        startActivity(intent);
+
+    }
+
     public void SMS(View view){
         Intent intent = new Intent(getApplicationContext(), Bliscy.class);
         startActivity(intent);
