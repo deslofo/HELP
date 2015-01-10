@@ -17,37 +17,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:textSize="17.0sp"
-        android:text="
-    1. Upewnij się że nic ci nie zagraża.
-    2. Jeśli ubranie się pali lub tli - ugaś je. Do tego celu NIE używaj gaśnicy.
-    3. Wezwij pogotowie jeśli oparzenie jest rozlegle.
-    4. Zdejmij ubranie. Jeżeli ubranie jest wtopione w ciało to nie zrywaj go tylko wytnij ubranie wokół rany.
-    5. Jeżeli oparzona jest ręka ściągnij biżuterie - zanim narastający obrzęk uniemożliwi to.
-    6. Ochładzaj oparzona część ciała czystą, chłodną wodą od 10 do 20 minut.
-    7. Po ochłodzeniu poczekaj, aż oparzona skóra wyschnie, następnie osłoń opatrunkiem oparzeniowym lub mokrym opatrunekiem.
-            "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_oparzenia"></WebView>
 
-    <TextView
-        android:textSize="22.0sp" android:textStyle="bold"
-        android:layout_gravity="center"
-        android:gravity="center_vertical|center"
-        android:text="Jakich błędów unikać przy udzielaniu pomocy osobom poparzonym:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:textSize="17.0sp"
-        android:text="
-    1. Nie wolno podawać niczego doustnie.
-    2. Nie wolno smarować oparzonej skóry maściami, kremami, tłuszczami.
-    3. Nie wolno przekuwać pęcherzy.
-    4. Nie wolno smarować alkoholem.
-    5. Nie wolno zostawiać ratowanego samego, jeśli oparzenie jest rozlegle."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>

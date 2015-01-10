@@ -16,15 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:textSize="18.0sp"
-        android:text="
-    1. wyniesienie poszkodowanego z miejsca, w którym omdlał, a gdy jest to niemożliwe zapewnienie dostępu świeżego powietrza,
-    2. ułożenie na plecach,
-    3. ocena funkcji życiowych, czyli udrożnienie dróg oddechowych poprzez odgięcie głowy do tyłu a następnie ocena oddechu przez 10 sekund (w tym czasie powinniśmy usłyszeć co najmniej dwa oddechy),
-    4. zastosowanie pozycji czterokończynowej, tj. jednoczesne uniesienie kończyn górnych i dolnych,
-    5. jeśli po kilku minutach świadomość nie powraca – wezwanie pogotowia."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+     <WebView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/info_omdlenia"></WebView>
 
 </LinearLayout>
