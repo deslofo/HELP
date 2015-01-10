@@ -6,10 +6,24 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.klaudia.help.Skaleczenia">
+    tools:context="com.example.klaudia.help.Skaleczenia"
+    android:orientation="vertical">
 
     <TextView
-        android:text="@string/hello_world"
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Postępowanie w przypadku skaleczeń:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    1. Najpierw oczyść ranę jałowym gazikiem. W razie potrzeby usuń ciała obce (drobiny ziemi, szkła etc.). Jeśli nie mamy pod ręką nic do dezynfekcji, wystarczy umyć ranę wodą z mydłem.
+    2. Miejsce zranienia możesz zabezpieczyć gazą i bandażem.
+    3. W przypadku rozległych i głębokich ran, które mogą zagrażać życiu, natychmiast wezwij pogotowie.
+    5. Do czasu przyjazdu lekarza, spróbuj powstrzymać krwawienie. W przypadku rany na ręce lub nodze nakładamy opatrunek uciskowy, gazę, na nią wkład uciskowy, np. rolkę bandaża, i mocno zawijamy, żeby zacisnąć uszkodzone naczynie. Ran na głowie i tułowiu nie należy uciskać – kładziemy na nie tylko gazę, a następnie bandażujemy.
+    6. Jeśli krwawienie nie ustaje, nie zmieniaj bandaża, lecz załóż kolejny. Unieś wyżej skaleczoną rękę (nogę). Przy intensywnych krwawieniach możesz ucisnąć ręką większe naczynie krwionośne powyżej miejsca zranienia. "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

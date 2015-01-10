@@ -6,10 +6,119 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.klaudia.help.Zlamania">
+    tools:context="com.example.klaudia.help.Zlamania"
+    android:orientation="vertical">
+
 
     <TextView
-        android:text="@string/hello_world"
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Postępowanie w przypadku złamania:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    1. Jeżeli wystąpiło otwarte złamanie, nałożyć jałowy opatrunek, bez zmiany położenia przemieszczonych kości, lekko obandażować.
+    2. Przy złamaniu zamkniętym nie należy ściągać odzieży z miejsca złamania, przy otwartym - naciąć odzież wzdłuż szwów, by opatrzyć ranę.
+    3. Niedopuszczalne jest nastawianie kończyny we własnym zakresie!
+    4. Zabezpieczyć poszkodowanego przed dalszymi, ewentualnymi urazami i utratą ciepła.
+    5. Można stosować zimne okłady (obłożyć bolesne miejsca lodem w woreczku).
+    6. Jak najszybciej zapewnić poszkodowanemu fachową pomoc medyczną.
+    7. Doraźne unieruchamianie złamanych kończyn powinno obejmować co najmniej dwa sąsiadujące stawy. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Złamanie kości kończyny górnej. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    1. Unieruchomić kończynę za pomocą chusty trójkątnej (zastosować temblak) (rys.1,2).
+    2. W przypadku złamania kości przedramienia, podłożyć pod dłoń i przedramię listwę drewnianą, karton, itp., usztywnić poprzez obandażowanie.
+    3. W przypadku złamania kości palca (palców) obandażować z sąsiednimi, pod palcami umieścić zwinięty bandaż (szer. 5cm), dłoń wraz z przedramieniem umieścić na drewnianej listwie (itp.) i obandażować. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Złamanie kończyny dolnej. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    1. W przypadku złamania nogi najlepiej unieruchomić ją poprzez przywiązanie jej do nogi zdrowej.
+    2. Wiązanie należy zastosować w trzech miejscach: w okolicy bioder, w okolicy kolan oraz na stopach. Stopy bandażuje się w kostkach oraz w okolicy palców stosując tzw. ósemkę. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Złamanie kości obojczyka."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    Zastosować temblak, a kość ramieniową unieruchomić przez obandażowanie jej wraz z klatką piersiową. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Złamanie żeber."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    Ułożenie w pożądanej przez poszkodowanego pozycji.  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Złamanie kości miednicy, podudzia i uda."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    1. Ułożenie w pozycji horyzontalnej lub półsiedzącej.
+    2. Lekko zgiąć nogę w stawie biodrowym i kolanowym (można podłożyć np. zwiniętą kurtkę pod kolano).
+    3. Unieruchomić złamaną część ciała przez obłożenie np.: plecakami, pniaczkami, itp. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Złamanie kości stopy."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    1. Zalecić bezruch
+    2. Obuwia, którego cholewka sięga poza kostkę (np. but narciarski, trekkingowy) nie ściągać, a jedynie poluzować sznurowadła (zapięcia).
+    3. Ułożyć nogę w pozycji pożądanej, unieruchomić ją poprzez obłożenie np.: plecakami.
+    4. W wolnej przestrzeni między nogą a podłożem umieścić plecak, śpiwór, itp. "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
