@@ -6,10 +6,24 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.klaudia.help.Omdlenia">
+    tools:context="com.example.klaudia.help.Omdlenia"
+    android:orientation="vertical">
 
     <TextView
-        android:text="@string/hello_world"
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="Postępowanie w przypadku omdlenia:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18.0sp"
+        android:text="
+    1. wyniesienie poszkodowanego z miejsca, w którym omdlał, a gdy jest to niemożliwe zapewnienie dostępu świeżego powietrza,
+    2. ułożenie na plecach,
+    3. ocena funkcji życiowych, czyli udrożnienie dróg oddechowych poprzez odgięcie głowy do tyłu a następnie ocena oddechu przez 10 sekund (w tym czasie powinniśmy usłyszeć co najmniej dwa oddechy),
+    4. zastosowanie pozycji czterokończynowej, tj. jednoczesne uniesienie kończyn górnych i dolnych,
+    5. jeśli po kilku minutach świadomość nie powraca – wezwanie pogotowia."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
