@@ -199,7 +199,20 @@ public class FirstStart extends ActionBarActivity {
         final AlertDialog.Builder alterdialog = new AlertDialog.Builder(FirstStart.this);
         alterdialog.setTitle("Dodaj kontakt");
         alterdialog.setView(propset);
-        alterdialog.setNeutralButton("Dodaj", new DialogInterface.OnClickListener() {
+        alterdialog.setNeutralButton("Usun", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (kontakty.size() > 1){
+                    lista_kontaktow.remove(position);
+                    kontakty.remove(position);
+                    listView.invalidateViews();
+                    Helper.getListViewSize(listView);
+                }
+                else
+                    Toast.makeText(getApplicationContext(), "Nie można usunać kontaktu. Musi być conajmniej jeden kontakt", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alterdialog.setPositiveButton("Dodaj", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, int which) {
                 runOnUiThread(new Runnable() {
