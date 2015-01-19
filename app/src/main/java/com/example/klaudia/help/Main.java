@@ -27,6 +27,10 @@ public class Main extends ActionBarActivity {
         startActivity(intent);
 
     }
+    public void Medyczne_info(View view){
+        Intent intent = new Intent(getApplicationContext(), Medyczne_info.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

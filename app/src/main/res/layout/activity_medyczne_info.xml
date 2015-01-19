@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".com.example.klaudia.help.Medyczne_Info"
+    android:orientation="vertical"
+    android:background="@color/green2"
+    >
+        <TextView
+            android:textSize="23.0sp" android:textStyle="bold"
+            android:gravity="center_vertical|center"
+            android:text="@string/grupa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/Grupa_krwi"
+        android:textSize="23.0sp"
+        android:gravity="center_vertical|center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="@string/choroby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/Choroby"
+        android:textSize="23.0sp"
+        android:gravity="center_vertical|center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+     <TextView
+        android:textSize="23.0sp" android:textStyle="bold"
+        android:gravity="center_vertical|center"
+        android:text="@string/leki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/Leki"
+        android:textSize="23.0sp" 
+        android:gravity="center_vertical|center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

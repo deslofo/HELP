@@ -83,6 +83,10 @@
             android:name="com.example.klaudia.help.Zadwon"
             android:label="@string/title_activity_zadwon" >
         </activity>
+        <activity
+            android:name="com.example.klaudia.help.Medyczne_info"
+            android:label="@string/title_activity_medyczne" >
+        </activity>
     </application>
 
 </manifest>
