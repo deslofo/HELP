@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -60,7 +59,7 @@ public class Medyczne_info extends Activity {
 
             //noinspection SimplifiableIfStatement
             if (id == R.id.action_settings) {
-                Intent intent = new Intent(getApplicationContext(), Setings.class);
+                Intent intent = new Intent(getApplicationContext(), Settings.class);
                 startActivity(intent);
                 return true;
             }

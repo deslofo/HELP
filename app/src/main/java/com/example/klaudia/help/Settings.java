@@ -23,7 +23,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class Setings extends ActionBarActivity {
+public class Settings extends ActionBarActivity {
 
     SharedPreferences sharedPreferences;
     EditText  grupa_krwi, chorby, leki;
@@ -80,11 +80,11 @@ public class Setings extends ActionBarActivity {
 
     protected void showDialog(){
 
-        LayoutInflater li = LayoutInflater.from(Setings.this);
+        LayoutInflater li = LayoutInflater.from(Settings.this);
         View propset = li.inflate(R.layout.newkontakt_dialog, null);
         final EditText nazwa = (EditText) propset.findViewById(R.id.edit_nazwa);
         final EditText telefon = (EditText) propset.findViewById(R.id.dialog_telefon);
-        final AlertDialog.Builder alterdialog = new AlertDialog.Builder(Setings.this);
+        final AlertDialog.Builder alterdialog = new AlertDialog.Builder(Settings.this);
         alterdialog.setTitle("Dodaj kontakt");
         alterdialog.setView(propset);
         alterdialog.setNeutralButton("Dodaj", new DialogInterface.OnClickListener() {
@@ -139,7 +139,7 @@ public class Setings extends ActionBarActivity {
 
     protected void poprawKontakDialog(final int position){
 
-        LayoutInflater li = LayoutInflater.from(Setings.this);
+        LayoutInflater li = LayoutInflater.from(Settings.this);
         View propset = li.inflate(R.layout.newkontakt_dialog, null);
         final EditText nazwa = (EditText) propset.findViewById(R.id.edit_nazwa);
         nazwa.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
@@ -154,7 +154,7 @@ public class Setings extends ActionBarActivity {
         telefon.setText(s);
         final TextView textView1 = (TextView) findViewById(R.id.firtstart_pom1);
         final TextView textView2 = (TextView) findViewById(R.id.firtstart_pom2);
-        final AlertDialog.Builder alterdialog = new AlertDialog.Builder(Setings.this);
+        final AlertDialog.Builder alterdialog = new AlertDialog.Builder(Settings.this);
         alterdialog.setTitle("Dodaj kontakt");
         alterdialog.setView(propset);
         alterdialog.setNeutralButton("Usun", new DialogInterface.OnClickListener() {
@@ -215,7 +215,7 @@ public class Setings extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setings);
+        setContentView(R.layout.activity_settings);
 
         textView1 = (TextView) findViewById(R.id.firtstart_pom1);
         textView2 = (TextView) findViewById(R.id.firtstart_pom2);
@@ -275,7 +275,7 @@ public class Setings extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.setings, menu);
+        getMenuInflater().inflate(R.menu.settings, menu);
         return true;
     }
 

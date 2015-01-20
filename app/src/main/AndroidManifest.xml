@@ -76,11 +76,11 @@
             android:label="@string/title_activity_skaleczenia" >
         </activity>
         <activity
-            android:name="com.example.klaudia.help.Setings"
-            android:label="Seting" >
+            android:name=".Settings"
+            android:label="@string/action_settings" >
         </activity>
         <activity
-            android:name="com.example.klaudia.help.Zadwon"
+            android:name=".Zadzwon"
             android:label="@string/title_activity_zadwon" >
         </activity>
         <activity

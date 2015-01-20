@@ -19,10 +19,11 @@
     <string name="title_activity_omdlenia">Omdlenia</string>
     <string name="title_activity_zlamania">Zlamania</string>
     <string name="title_activity_skaleczenia">Skaleczenia</string>
-    <string name="title_activity_zadwon">Zadwon</string>
-    <string name="title_activity_medyczne">Medyczne_info</string>
+    <string name="title_activity_zadwon">Zadzwon</string>
+    <string name="title_activity_medyczne">Medyczne informacje</string>
     <string name="grupa">Grupa krwi:</string>
     <string name="choroby">Choroby zakaźne:</string>
     <string name="leki">Aktualne leki:</string>
+    <string name="zmiany">Zapisz zmiany</string>
 
 </resources>

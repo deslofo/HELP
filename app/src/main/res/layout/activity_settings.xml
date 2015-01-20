@@ -79,7 +79,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dalej"
+                    android:text="@string/zmiany"
                     android:onClick="dalej"
                     android:layout_weight="1"/>
 

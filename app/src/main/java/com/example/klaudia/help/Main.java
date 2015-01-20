@@ -13,7 +13,7 @@ import android.view.View;
 public class Main extends ActionBarActivity {
 
     public void alarm(View view){
-        Intent intent = new Intent(getApplicationContext(), Zadwon.class);
+        Intent intent = new Intent(getApplicationContext(), Zadzwon.class);
         startActivity(intent);
 
     }
@@ -75,7 +75,7 @@ public class Main extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(getApplicationContext(), Setings.class);
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
             startActivity(intent);
             return true;
         }

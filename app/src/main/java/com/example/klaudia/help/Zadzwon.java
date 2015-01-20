@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class Zadwon extends ActionBarActivity {
+public class Zadzwon extends ActionBarActivity {
     public void policja(View view){
         dzwon("881204283");
     }
@@ -35,14 +35,14 @@ public class Zadwon extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zadwon);
+        setContentView(R.layout.activity_zadzwon);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.zadwon, menu);
+        getMenuInflater().inflate(R.menu.zadzwon, menu);
         return true;
     }
 
@@ -55,6 +55,8 @@ public class Zadwon extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
+            startActivity(intent);
             return true;
         }
 

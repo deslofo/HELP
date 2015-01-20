@@ -1,91 +1,67 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".Main"
     android:orientation="vertical"
     android:background="@color/green2"
     >
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
 
         <Button
-            android:layout_marginTop="50dp"
-            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dzwon"
             android:background="@color/red"
-            android:layout_weight="1"
             android:onClick="alarm"/>
 
 
-        </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <Button
+        <Button
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sms"
         android:background="@color/blue"
-        android:layout_weight="1"
+        android:layout_gravity="center"
         android:onClick="SMS"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <Button
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/szukaj"
             android:background="@color/morski"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            android:layout_gravity="center"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Medyczne_info"
             android:text="@string/Info"
             android:layout_marginTop="10dp"
-            android:background="@color/aqua"
-
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:layout_gravity="center"
+            android:background="@color/aqua"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             android:text="@string/Pierwsza_pomoc"
             android:background="@color/aqua"
             android:onClick="Instrukcje"
-            android:layout_weight="1"/>
+          />
 
 
         </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
