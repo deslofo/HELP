@@ -52,7 +52,7 @@ public class Apteka extends ActionBarActivity implements LocationListener {
             WebView webview = (WebView) findViewById(R.id.webView1);
             webview.setWebViewClient(new WebViewClient());
             webview.getSettings().setJavaScriptEnabled(true);
-            webview.loadUrl("http://maps.google.com/maps?" + "q=apteka" + latitude + "," + longitude);
+            webview.loadUrl("http://maps.google.com/maps?" + "q=apteka " + latitude + "," + longitude);
 
 
         } else
