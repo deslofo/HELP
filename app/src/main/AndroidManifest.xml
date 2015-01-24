@@ -87,6 +87,10 @@
             android:name="com.example.klaudia.help.Medyczne_info"
             android:label="@string/title_activity_medyczne" >
         </activity>
+        <activity
+            android:name="com.example.klaudia.help.Apteka"
+            android:label="@string/apteka" >
+        </activity>
     </application>
 
 </manifest>

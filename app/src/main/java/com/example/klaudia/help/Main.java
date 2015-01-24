@@ -32,6 +32,11 @@ public class Main extends ActionBarActivity {
         startActivity(intent);
     }
 
+    public void Apteka(View view){
+        Intent intent = new Intent(getApplicationContext(), Apteka.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

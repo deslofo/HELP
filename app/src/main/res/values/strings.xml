@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="dzwon">Zadzwoń po pomoc</string>
     <string name="sms">Powiadom bliskiego</string>
-    <string name="szukaj">Szukaj w okolicy</string>
+    <string name="szukaj">Szukaj apteki w okolicy</string>
     <string name="Pierwsza_pomoc">Instrukcje pierwszej pomocy</string>
     <string name="Info">Medyczne informacje o sobie</string>
     <string name="title_activity_sms">SMS</string>
@@ -25,5 +25,7 @@
     <string name="choroby">Choroby zakaźne:</string>
     <string name="leki">Aktualne leki:</string>
     <string name="zmiany">Zapisz zmiany</string>
+    <string name="apteka">Apteka</string>
+
 
 </resources>
