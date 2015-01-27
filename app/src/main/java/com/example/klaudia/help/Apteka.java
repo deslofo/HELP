@@ -6,7 +6,9 @@ package com.example.klaudia.help;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -39,20 +41,41 @@ public class Apteka extends ActionBarActivity implements LocationListener {
         onLoadLocationMenager();
         String dostawca = getBestProvider();
         Log.d("dostawca", dostawca);
+        String s = "";
         location = locationManager.getLastKnownLocation(dostawca);
+        Geocoder coder = new Geocoder(this);
         if (location != null) {
+            String localInfo = null;
             try {
-                latitude = String.valueOf(location.getLatitude());
-                longitude = String.valueOf(location.getLongitude());
-            } catch (Exception e) {
-                Log.e("Apteka", "Nie udalo się określić położenia", e);
+                Iterator<Address> address = coder.
+                        getFromLocation(location.getLatitude(),
+                                location.getLongitude(), 3).iterator();
+                /*if (address != null) {
+                    while (address.hasNext()) {
+                        Address namedLoc = address.next();
+                         placeName = namedLoc.getLocality();
+                        String featueName = namedLoc.getFeatureName();
+                        String country = namedLoc.getCountryName();
+                        road = namedLoc.getThoroughfare();
+
+
+                    }*/
+                     Address namedLoc = address.next();
+                   s = namedLoc.getLocality() + " " + namedLoc.getFeatureName() + " "+ namedLoc.getCountryName();
+
+
+
+
+            } catch (IOException e) {
+                Log.e("GPS", "Nie udalo się określić położenia", e);
                 Toast.makeText(getApplicationContext(), "Nie udalo się określić położenia", Toast.LENGTH_SHORT).show();
             }
+
 
             WebView webview = (WebView) findViewById(R.id.webView1);
             webview.setWebViewClient(new WebViewClient());
             webview.getSettings().setJavaScriptEnabled(true);
-            webview.loadUrl("http://maps.google.com/maps?" + "q=apteka " + latitude + "," + longitude);
+            webview.loadUrl("http://maps.google.com/maps?" + "q=apteka " + s);
 
 
         } else
