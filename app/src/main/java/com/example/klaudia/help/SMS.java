@@ -64,7 +64,7 @@ public class SMS extends ActionBarActivity implements LocationListener {
                 Iterator<Address> address = coder.
                         getFromLocation(location.getLatitude(),
                                 location.getLongitude(), 3).iterator();
-                if (address != null) {
+                /*if (address != null) {
                     while (address.hasNext()) {
                         Address namedLoc = address.next();
                         String placeName = namedLoc.getLocality();
@@ -75,8 +75,10 @@ public class SMS extends ActionBarActivity implements LocationListener {
                                 placeName, featueName, road, country);
 
                     }
-                }
+                }*/
                 //Toast.makeText(getApplicationContext(), localInfo, Toast.LENGTH_SHORT).show();
+                Address namedLoc = address.next();
+                localInfo = namedLoc.getLocality() + " " + namedLoc.getFeatureName() + " "+ namedLoc.getCountryName();
                 Log.d("localinfo", localInfo);
 
             } catch (IOException e) {
@@ -93,7 +95,7 @@ public class SMS extends ActionBarActivity implements LocationListener {
             Uri geo = Uri.parse(geoUri);
             Intent geoMap = new Intent(Intent.ACTION_VIEW, geo);
             //startActivity(geoMap);
-            result += localInfo;
+            result += " " + localInfo;
             result += geoUri;
             SmsManager smsManager = SmsManager.getDefault();
             ArrayList<String> fragmenty = null;

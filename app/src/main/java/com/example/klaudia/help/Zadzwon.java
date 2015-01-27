@@ -25,6 +25,7 @@ public class Zadzwon extends ActionBarActivity {
     public void sto(View view){
         dzwon("881204283");
     }
+
     public void dzwon(String tel){
         Uri number = Uri.parse("tel:" + tel);
         Intent dial = new Intent(Intent.ACTION_CALL, number);
